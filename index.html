@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+    <script src="https://unpkg.com/vue@next"></script>
+    <title>Learn Vue</title>
+</head>
+<body>
+    <div id="app">
+        <h1 class="pt-20 object-fill">
+            <nav class="flex justify-end px-20 pb-10">
+                <button class="bg-gray-400 px-8 py-2 rounded-md text-white text-xl">
+                    Cart ({{ cart }})
+                </button>
+            </nav>
+            <div class="flex justify-center">
+                <img class="border-4 border-gray-400 w-120 h-80" :src="image">
+            </div>
+            <div class="flex justify-center ">
+                <a :href="url" target="_blank" class="text-5xl font-bold pt-8 cursor-pointer">
+                    {{ name }}
+                </a>
+            </div>
+
+            <div class="grid grid-cols-2 pt-10">
+                <div class="col-span-1">
+                    <div class="text-2xl px-20">
+                        <div class="font-bold underline ">Variants</div>
+                        <ul>
+                            <li v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="text-left text-xl font-semibold cursor-pointer">
+                                {{ variant.set }}
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-span-1">
+                    <div class="px-20">
+                        <div class="flex justify-end">
+                            <button class="px-8 py-2 bg-[#5BACC4] rounded-sm text-xl text-white" @click="addToCart">
+                                Add to Cart
+                            </button>
+                        </div>
+
+                        <div class="flex justify-end pt-4">
+                            <button class="px-8 py-2 bg-[#9E3459] rounded-sm text-xl text-white" @click="removeFromCart">
+                                Remove from Cart
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+        </h1>
+    </div>
+
+    <script src="./main.js"></script>
+    <script>
+        const mountedApp = app.mount('#app')
+    </script>
+</body>
+</html>
