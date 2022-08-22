@@ -30,8 +30,10 @@
                     <div class="text-2xl px-20">
                         <div class="font-bold underline ">Variants</div>
                         <ul>
-                            <li v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="text-left text-xl font-semibold cursor-pointer">
-                                {{ variant.set }}
+                            <li v-for="variant in variants" :key="variant.id" @mouseover="updateImage(variant.image)" class="text-left text-xl font-semibold cursor-pointer flex">
+                                <div>
+                                    {{ variant.set }}
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -40,7 +42,7 @@
                 <div class="col-span-1">
                     <div class="px-20">
                         <div class="flex justify-end">
-                            <button class="px-8 py-2 bg-[#5BACC4] rounded-sm text-xl text-white" @click="addToCart">
+                            <button :disabled="!inStock" :class="inStock? 'bg-[#5BACC4]' : 'bg-gray-400' " class="px-8 py-2 rounded-sm text-xl text-white" @click="addToCart">
                                 Add to Cart
                             </button>
                         </div>

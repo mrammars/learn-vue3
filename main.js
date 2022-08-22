@@ -11,6 +11,7 @@ const app = Vue.createApp({
                 {id:3, set:'Winter' , image:'./assets/images/dk-winter.jpg'},
             ],
             cart:0,
+            inStock: false
         }
     },
     methods: {
